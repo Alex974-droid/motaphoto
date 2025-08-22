@@ -1,0 +1,45 @@
+/***FOOTER***/
+
+footer {
+  border-top: 1px #000000 solid;
+  width: 100%;
+}
+
+.site-footer {
+    color: black;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.footer-menu .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.footer-menu .menu li {
+    display: inline;
+}
+
+.footer-menu .menu a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Footer Format Mobile */
+@media (max-width: 768px) {
+    .footer-menu .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .footer-menu .menu li {
+        margin-bottom: 0.1rem;
+    }
+}

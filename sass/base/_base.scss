@@ -1,0 +1,21 @@
+/*THEME*/
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.container {
+    padding-left: 146px;
+    padding-right: 146px;
+}
+
+@media screen and (max-width: 820px) {
+    .container{
+        padding-left: 40px;
+        padding-right: 40px;
+        }
+
+}
