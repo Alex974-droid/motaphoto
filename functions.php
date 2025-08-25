@@ -1,5 +1,4 @@
 <?php
-
 // Fichier CSS et SCRIPT JS personalisé
 function motaphoto_enqueue_scripts() {
     // CSS
@@ -9,6 +8,7 @@ function motaphoto_enqueue_scripts() {
     );
 
     // JS
+    wp_enqueue_script('jquery'); 
     wp_enqueue_script(
         'motaphoto-script',
         get_stylesheet_directory_uri() . '/assets/js/script.js',

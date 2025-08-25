@@ -8,16 +8,22 @@ Version: 1.0
 Text Domain: theme-nathalie-mota
 */
 
+@use 'base/reset';
+@use 'base/fonts';
 @use 'base/base';
+@use 'base/typography';
 @use 'abstracts/variables';
 @use 'abstracts/functions';
 @use 'abstracts/mixins';
-@use 'base/reset';
 @use 'base/animations';
 @use 'components/banner';
+@use 'components/contact-popup';
 @use 'layout/header';
 @use 'layout/footer';
-@use 'base/typography';
+
+
+
+
 
 
 

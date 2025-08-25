@@ -30,3 +30,41 @@
 .fadeOut {
   animation: fadeOut 1s ease;
 }
+
+/* Animation d'entrée depuis la droite */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%); 
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);    
+  }
+}
+
+/* Animation de sortie vers la droite */
+@keyframes slideOutRight {
+    from { 
+      opacity: 1;
+      transform: translateX(0); 
+    }
+    to   { 
+      opacity: 0; 
+      transform: translateX(100%); 
+    }
+  }
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.slideInRight {
+  animation: slideInRight 500ms ease;
+}
+
+.slideOutRight {
+  animation: slideOutRight 500ms ease;
+}

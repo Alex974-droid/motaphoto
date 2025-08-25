@@ -16,7 +16,7 @@
 </main>
 <footer class="site-footer">
     <div class="footer-menu">
-        <!-- Affichage Menu du FOOTER -->
+        <!-- Affichage Menu FOOTER -->
         <?php
             wp_nav_menu(array(
                 'theme_location' => 'menu_footer',
@@ -25,6 +25,8 @@
             ));
         ?>
     </div>
+
+<?php get_template_part('template-parts/modale-contact'); ?>
 </footer>
 
 <?php wp_footer(); ?>

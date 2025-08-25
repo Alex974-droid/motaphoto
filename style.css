@@ -8,26 +8,6 @@ Description: Thème personnalisé pour le site de la photographe Nathalie Mota.
 Version: 1.0
 Text Domain: theme-nathalie-mota
 */
-/*THEME*/
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1440px;
-}
-
-.container {
-  padding-left: 146px;
-  padding-right: 146px;
-}
-
-@media screen and (max-width: 820px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
 /* normalize.css  */
 /* base/_reset.scss */
 *,
@@ -68,6 +48,260 @@ a {
   color: inherit;
 }
 
+/* FONTS */
+/* Space Mono Regular (400) */
+@font-face {
+  font-family: "Space Mono";
+  src: url("./assets/fonts/SpaceMono-Regular.woff2") format("woff2"), url("./assets/fonts/SpaceMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Space Mono Italic (400 italic) */
+@font-face {
+  font-family: "Space Mono";
+  src: url("./assets/fonts/SpaceMono-Italic.woff2") format("woff2"), url("./assets/fonts/SpaceMono-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Space Mono Bold (700) */
+@font-face {
+  font-family: "Space Mono";
+  src: url("./assets/fonts/SpaceMono-Bold.woff2") format("woff2"), url("./assets/fonts/SpaceMono-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Space Mono Bold Italic (700 italic) */
+@font-face {
+  font-family: "Space Mono";
+  src: url("./assets/fonts/SpaceMono-BoldItalic.woff2") format("woff2"), url("./assets/fonts/SpaceMono-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Thin (100) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Thin.woff2") format("woff2"), url("./assets/fonts/Poppins-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Thin Italic (100 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ThinItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins ExtraLight (200) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraLight.woff2") format("woff2"), url("./assets/fonts/Poppins-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins ExtraLight Italic (200 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraLightItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Light (300) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Light.woff2") format("woff2"), url("./assets/fonts/Poppins-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Light Italic (300 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-LightItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Regular (400) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.woff2") format("woff2"), url("./assets/fonts/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Italic (400 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Italic.woff2") format("woff2"), url("./assets/fonts/Poppins-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Medium (500) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.woff2") format("woff2"), url("./assets/fonts/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Medium Italic (500 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-MediumItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins SemiBold (600) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-SemiBold.woff2") format("woff2"), url("./assets/fonts/Poppins-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins SemiBold Italic (600 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-SemiBoldItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Bold (700) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.woff2") format("woff2"), url("./assets/fonts/Poppins-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Bold Italic (700 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-BoldItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins ExtraBold (800) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraBold.woff2") format("woff2"), url("./assets/fonts/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins ExtraBold Italic (800 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraBoldItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+/* Poppins Black (900) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Black.woff2") format("woff2"), url("./assets/fonts/Poppins-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* Poppins Black Italic (900 italic) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-BlackItalic.woff2") format("woff2"), url("./assets/fonts/Poppins-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+/*THEME*/
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.container {
+  padding-left: 146px;
+  padding-right: 146px;
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+h1 {
+  font-family: "SpaceMono", sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #000000;
+  font-family: "SpaceMono", sans-serif;
+  font-size: 67px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 58px;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: #000000;
+  font-family: "SpaceMono", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+}
+
+.description p {
+  color: #000000;
+  font-family: "SpaceMono", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+}
+
+p, li {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@media screen and (max-width: 820px) {
+  h1 {
+    color: #000000;
+    font-size: 28px;
+    text-shadow: none;
+  }
+  h2 {
+    font-size: 46px;
+    line-height: 48px;
+  }
+}
 @keyframes fadeInSlideDown {
   from {
     opacity: 0;
@@ -96,6 +330,227 @@ a {
   animation: fadeOut 1s ease;
 }
 
+/* Animation d'entrée depuis la droite */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Animation de sortie vers la droite */
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+/* Animation d'entrée */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideInRight {
+  animation: slideInRight 500ms ease;
+}
+
+.slideOutRight {
+  animation: slideOutRight 500ms ease;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 130px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.8s ease;
+  z-index: 10;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #FFFFFF;
+  margin: auto;
+  padding: 0;
+  border: 2px solidrgb(0, 0, 0) 8;
+  width: 597px;
+  height: auto;
+  border: 5px #000000 solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: fadeIn 0.8s ease;
+}
+
+/* Zone pour l'image */
+.modal-header {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  height: auto;
+}
+
+.modal-body {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.modal-header img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.5);
+  transform-origin: center;
+}
+
+/* Champs texte et email */
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 input[type=url],
+.wpcf7 input[type=tel],
+.wpcf7 input[type=number] {
+  font-size: 18px;
+  height: 55px;
+  padding: 12px 15px;
+  border: 1px solid #B8BBC2;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Zone de texte (MESSAGE) */
+.wpcf7 textarea {
+  font-size: 18px;
+  height: 150px;
+  padding: 12px 15px;
+  border: 1px solid #B8BBC2;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+/* Bouton d’envoi */
+.wpcf7 input[type=submit] {
+  font-size: 18px;
+  padding: 14px 25px;
+  border: 0px solid #B8BBC2;
+  width: 100%;
+  background: #D8D8D8;
+  cursor: pointer;
+}
+
+.wpcf7 input[type=submit]:hover {
+  background-color: #C4C4C4;
+}
+
+/* Message erreur du formulaire */
+.wpcf7 form.invalid .wpcf7-response-output {
+  border-color: #E00000;
+}
+
+/* Labels du formulaire CF7 */
+.wpcf7 form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.contact-form {
+  width: 56%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+
+.wpcf7-spinner {
+  display: none;
+}
+
+/* Message d’erreur sous un champ */
+.wpcf7 .wpcf7-not-valid-tip {
+  font-size: 12px;
+}
+
+.wpcf7 input:focus,
+.wpcf7 textarea:focus {
+  border: 2px solid #313144;
+  outline: none;
+}
+
+/* ========== MEDIA QUERIES (RESPONSIVE) ========== */
+/* Tablettes */
+@media (max-width: 820px) {
+  .modal-content {
+    animation: slideInRight 0.5s ease;
+  }
+}
+/* Tablettes */
+@media (max-width: 600px) {
+  .modal {
+    padding-top: 100px;
+  }
+  .modal-content {
+    width: 95vw;
+    height: auto;
+    animation: slideInRight 0.5s ease;
+  }
+  .wpcf7 form label {
+    margin-bottom: 20px;
+  }
+  .contact-form {
+    padding: 0px 0px 0px 20px;
+    width: 70%;
+  }
+  .modal-header {
+    padding: 40px 0px 20px 0px;
+  }
+  .modal-body {
+    padding: 12px;
+  }
+  .wpcf7 input[type=submit] {
+    padding: 14px 18px;
+  }
+}
+/* Mobiles < 480px */
+@media (max-width: 480px) {
+  .wpcf7 form label {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .wpcf7 input[type=text],
+  .wpcf7 input[type=email],
+  .wpcf7 input[type=url],
+  .wpcf7 input[type=tel],
+  .wpcf7 input[type=number],
+  .wpcf7 textarea {
+    font-size: 16px;
+    height: auto;
+  }
+  .modal-header img {
+    transform: scale(1.4);
+  }
+}
 /***HEADER***/
 header {
   display: flex;
@@ -145,7 +600,6 @@ header {
   display: block;
   border: 0;
   background-color: transparent;
-  margin-right: 50px;
 }
 .menu-toggle.active .line:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
@@ -255,63 +709,6 @@ footer {
   }
   .footer-menu .menu li {
     margin-bottom: 0.1rem;
-  }
-}
-h1 {
-  font-family: "SpaceMono", sans-serif;
-  font-size: 96px;
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-}
-
-h2 {
-  color: #000000;
-  font-family: "SpaceMono", sans-serif;
-  font-size: 67px;
-  font-weight: 400;
-  font-style: italic;
-  line-height: 58px;
-  text-transform: uppercase;
-}
-
-h3 {
-  color: #000000;
-  font-family: "SpaceMono", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 10%;
-  text-transform: uppercase;
-}
-
-.description p {
-  color: #000000;
-  font-family: "SpaceMono", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 10%;
-  text-transform: uppercase;
-}
-
-p, li {
-  color: #000000;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  font-style: normal;
-}
-
-@media screen and (max-width: 820px) {
-  h1 {
-    color: #000000;
-    font-size: 28px;
-    text-shadow: none;
-  }
-  h2 {
-    font-size: 46px;
-    line-height: 48px;
   }
 }
 
