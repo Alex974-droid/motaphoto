@@ -85,11 +85,16 @@
   width: 100%;
   background: #D8D8D8;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .wpcf7 input[type="submit"]:hover {
   background-color: #C4C4C4;
+  background-color: #000;   
+  color: #fff;
 }
+
+
 
 /* Message erreur du formulaire */
 .wpcf7 form.invalid .wpcf7-response-output {

@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package motaphoto
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * 
+ * 
  */
 
 ?>
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<header>
+	<header id="main-header">
 		<!-- Logo du site -->
 		<div class="logo">
 			<?php
@@ -50,13 +50,5 @@
 			?>
 		</nav>
 	</header>
-	
-
-
-
-
-
-
-
 
 	<main>

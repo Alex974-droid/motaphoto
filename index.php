@@ -1,3 +1,13 @@
+<?php
+/**
+ * The template for displaying The home page template which is the front page by default
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * *
+ * @package motaphoto
+ */
+
+?>
 <?php get_header(); ?>
 
 <div class="container">

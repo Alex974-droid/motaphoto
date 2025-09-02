@@ -1,8 +1,7 @@
-
-//OUVERTURE MENU TOGGLE
+// *** OUVERTURE MENU TOGGLE *** //
 document.addEventListener('DOMContentLoaded', () => {
   const boutonBurger = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('nav');
+  const menu = document.getElementById("nav-menu");
 
   let menuOpen = false; 
 
@@ -32,26 +31,56 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-//FERMETURE MODALE
-jQuery(document).ready(function($) {
-  $('.ppopup-close').click(function() {
-    $(this).closest('.ppopup-overlay').hide();
-  });
-});
-
-// MODAL CONTACT //
+//*** MODAL CONTACT HEADER ***//
 var modal = document.getElementById('ContactModal');
 var btn = document.querySelector(".open-contact-modal");
-var span = document.getElementsByClassName("close")[0];
 
 // Ouverture Modale
 btn.onclick = function() {
     modal.style.display = "block";
 }
 
-// Fermeture au clic en dehors de la Modale
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+// *** MODAL CONTACT PHOTO *** //
+jQuery(document).ready(function($) {
+  // Quand on clique sur le bouton "Contact"
+  $('.btn-contact').on('click', function(e) {
+    e.preventDefault();
+
+    // Récupérer la référence dans data-reference (voir btn-contact single-photos.php)
+    var reference = $(this).data('reference');
+
+    if (!reference) {
+      reference = $('#photo-ref').text().trim();
     }
+
+    // Injecter la valeur dans le champ du formulaire
+    $('#photo-ref-field').val(reference);
+
+    // Ouvrir la modale
+    $('#ContactModal').show();
+  });
+
+  // Fermer si clic en dehors de la modale
+  $(window).on('click', function(e) {
+    if ($(e.target).is('#ContactModal')) {
+      $('#ContactModal').hide();
+    }
+  });
+});
+
+
+// *** Affichage des miniatures au survol des flèches single-photos.php *** //
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+const prevThumb = document.querySelector('.preview-thumbnail-prev');
+const nextThumb = document.querySelector('.preview-thumbnail-next');
+
+if (prevArrow && prevThumb) {
+  prevArrow.addEventListener('mouseenter', () => prevThumb.classList.add('visible'));
+  prevArrow.addEventListener('mouseleave', () => prevThumb.classList.remove('visible'));
+}
+
+if (nextArrow && nextThumb) {
+  nextArrow.addEventListener('mouseenter', () => nextThumb.classList.add('visible'));
+  nextArrow.addEventListener('mouseleave', () => nextThumb.classList.remove('visible'));
 }
