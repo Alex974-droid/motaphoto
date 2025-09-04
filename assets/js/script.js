@@ -42,7 +42,6 @@ btn.onclick = function() {
 
 // *** MODAL CONTACT PHOTO *** //
 jQuery(document).ready(function($) {
-  // Quand on clique sur le bouton "Contact"
   $('.btn-contact').on('click', function(e) {
     e.preventDefault();
 
@@ -53,7 +52,7 @@ jQuery(document).ready(function($) {
       reference = $('#photo-ref').text().trim();
     }
 
-    // Injecter la valeur dans le champ du formulaire
+    // Injecter la valeur dans le champ du formulaire (voir ID CF7)
     $('#photo-ref-field').val(reference);
 
     // Ouvrir la modale

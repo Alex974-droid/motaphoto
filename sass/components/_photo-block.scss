@@ -1,0 +1,82 @@
+/* ---- Bloc photo individuel ---- */
+.photo-block {
+   position: relative; 
+   width: 564px;
+   height: auto; 
+   overflow: hidden; 
+   aspect-ratio: 1 / 1; 
+}
+
+.photo-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* ---- Overlay au survol ---- */
+.photo-overlay {
+    position: absolute;
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    align-items: center; 
+    justify-items: center; 
+    padding: 8px 10px 8px 10px;
+}
+
+.photo-block:hover .photo-overlay {
+    opacity: 1;
+}
+
+.fullscreen-icon {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    justify-self: end; 
+    align-self: start; 
+}
+
+.eye-icon {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+}
+
+.fullscreen-icon:hover {
+   transform: scale(1.1);
+}
+
+.eye-icon:hover {
+    transform: scale(1.1);
+}
+
+.photo-reference {
+    font-family: Space Mono;
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+    justify-self: start;
+    align-self: end; 
+    color: white;
+    text-transform: uppercase;
+}
+
+.photo-category {
+    font-family: Space Mono;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    justify-self: end; 
+    align-self: end; 
+    color: white;
+    text-transform: uppercase;
+}
+
+/* FORMAT MOBILE */
+@media (max-width: 820px) {
+    .photo-block {
+        width: 90%; 
+        height: auto;    
+        aspect-ratio: 1 / 1; 
+    }
+}

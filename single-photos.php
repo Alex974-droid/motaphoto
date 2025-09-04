@@ -31,7 +31,7 @@ get_header(); ?>
 
         <div class="photo-display">
             <?php 
-            // Affiche l'image mise en avant
+            // Image mise en avant
             if ( has_post_thumbnail() ) {
                 the_post_thumbnail('large'); 
             }
@@ -50,7 +50,6 @@ get_header(); ?>
         <div class="contact-cta">
             <p>Cette photo vous intéresse ?</p>
             <button type="button" class="btn-contact" data-reference="<?php echo esc_attr($photo_reference ); ?>">Contact</button>
-
         </div>
 
         <div class="photo-navigation">
@@ -114,4 +113,52 @@ get_header(); ?>
         </div>
     </div>
 </section>
+
+<!-- PHOTOS APPARENTÉES -->
+<section class="related-photos">
+    <div class="related-title">
+        <h3>Vous aimerez aussi</h3>
+    </div>
+
+    <div class="related-photos-grid">
+        <?php
+        $terms = get_the_terms( get_the_ID(), 'categorie' );
+        $term_ids = [];
+
+        if ( $terms && ! is_wp_error( $terms ) ) {
+            $term_ids = wp_list_pluck( $terms, 'term_id' );
+        }
+
+        if ( ! empty( $term_ids ) ) {
+            $args = array(
+                'post_type'      => 'photos',
+                'posts_per_page' => 2,
+                'post__not_in'   => array( get_the_ID() ),
+                'orderby'        => 'rand', 
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'categorie',
+                        'field'    => 'term_id',
+                        'terms'    => $term_ids,
+                    ),
+                ),
+            );
+
+            $related_query = new WP_Query( $args );
+
+            if ( $related_query->have_posts() ) :
+                while ( $related_query->have_posts() ) : $related_query->the_post(); 
+
+                    //Template part photo_block
+                    get_template_part('template-parts/photo_block');
+
+                endwhile;
+            endif;
+            
+            wp_reset_postdata();
+        }
+        ?>
+    </div>
+</section>
+
 <?php get_footer(); ?>
