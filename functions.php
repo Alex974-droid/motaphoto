@@ -16,6 +16,7 @@ function motaphoto_enqueue_scripts() {
         null,            
         true             
     );
+
 }
 add_action('wp_enqueue_scripts', 'motaphoto_enqueue_scripts');
 
@@ -43,5 +44,3 @@ function motaphoto_setup() {
     );
 }
 add_action( 'after_setup_theme', 'motaphoto_setup' );
-
-?>

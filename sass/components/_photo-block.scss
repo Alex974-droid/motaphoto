@@ -1,10 +1,9 @@
 /* ---- Bloc photo individuel ---- */
 .photo-block {
-   position: relative; 
-   width: 564px;
-   height: auto; 
-   overflow: hidden; 
-   aspect-ratio: 1 / 1; 
+    width: 100%; 
+    aspect-ratio: 564 / 495;
+    position: relative;
+    overflow: hidden;
 }
 
 .photo-block img {
@@ -70,13 +69,4 @@
     align-self: end; 
     color: white;
     text-transform: uppercase;
-}
-
-/* FORMAT MOBILE */
-@media (max-width: 820px) {
-    .photo-block {
-        width: 90%; 
-        height: auto;    
-        aspect-ratio: 1 / 1; 
-    }
 }
