@@ -31,15 +31,16 @@ $hero_title = $hero_title ? $hero_title : $default_title;
     </div>
 </section>
 
- <section class="photo-gallery">
+<section class="photo-gallery">
     <div class="gallery-container">
         <div class="photo-grid">
             <?php
             $args = array(
                 'post_type'      => 'photos',      
-                'posts_per_page' => 8,          
+                'posts_per_page' => 8,              
                 'orderby'        => 'date',         
-                'order'          => 'DESC',     
+                'order'          => 'DESC',
+                'paged'          => 1,      
             );
 
             $photo_query = new WP_Query( $args );
@@ -52,13 +53,50 @@ $hero_title = $hero_title ? $hero_title : $default_title;
 
                 endwhile;
             endif;
+            
+            ?>
+        </div>
+
+        <div class="load-more-container">
+            <?php
+            global $photo_query; 
+            if ($photo_query->max_num_pages > 1) :
+            ?>
+            <button
+            class="btn-load-more"
+            data-ajaxurl="<?php echo admin_url('admin-ajax.php'); ?>"
+            data-action="load_more_photos"
+            data-nonce="<?php echo wp_create_nonce('load_more_photos_nonce'); ?>"
+            data-page="2" >
+            Charger plus
+            </button>
+            <?php 
+            endif;
             wp_reset_postdata();
             ?>
         </div>
+
     </div>
 </section>
 
 
 
-
 <?php get_footer(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

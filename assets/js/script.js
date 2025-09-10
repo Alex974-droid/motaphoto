@@ -67,7 +67,6 @@ jQuery(document).ready(function($) {
   });
 });
 
-
 // *** Affichage des miniatures au survol des flèches single-photos.php *** //
 const prevArrow = document.querySelector('.prev-arrow');
 const nextArrow = document.querySelector('.next-arrow');
@@ -83,3 +82,15 @@ if (nextArrow && nextThumb) {
   nextArrow.addEventListener('mouseenter', () => nextThumb.classList.add('visible'));
   nextArrow.addEventListener('mouseleave', () => nextThumb.classList.remove('visible'));
 }
+
+
+
+
+
+
+
+
+
+
+
+

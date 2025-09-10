@@ -1,3 +1,7 @@
+//Variables
+$btn-hover-color: #000;
+$btn-text-hover: #fff;
+
 /* HERO Page d'Accueil */
 .hero {
     height: 100vh; 
@@ -42,7 +46,7 @@
 .photo-gallery {
     justify-items: center;
     padding: 0px 20px;
-    display: grid;
+
 }
 
 .photo-grid {
@@ -50,11 +54,13 @@
     gap: 20px;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .gallery-container {
     max-width: 1148px;
+    margin: 0 auto;
+    justify-items: center;
 }
 
 /* Format MOBILE */
@@ -64,3 +70,27 @@
     }
 }
 
+.load-more-container {
+  text-align: center; 
+  margin-top: 0px;   
+  margin-bottom: 1rem; 
+}
+
+.btn-load-more {
+  font-family: Space Mono;
+  background: #d8d8d8;
+  color: #000000;
+  padding: 15px 0;
+  font-size: 12px;
+  border: 0;
+  border-radius: 2px;
+  transition: 0.3s ease-in-out;
+  width: 250px;
+  cursor: pointer;
+}
+
+.btn-load-more:hover {
+  background-color: $btn-hover-color;
+  color: $btn-text-hover;
+  font-weight: 500;
+}
