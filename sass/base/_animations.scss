@@ -34,7 +34,9 @@
 /* Animation d'entrée depuis la droite */
 @keyframes slideInRight {
   from {
+
     opacity: 0;
+   
     transform: translateX(100%); 
   }
   to {

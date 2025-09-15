@@ -31,8 +31,10 @@ $hero_title = $hero_title ? $hero_title : $default_title;
     </div>
 </section>
 
-<section class="photo-gallery">
+ <section class="photo-gallery">
     <div class="gallery-container">
+        <!-- Template part filtre-photos -->
+        <?php get_template_part('template-parts/photo-filters');?>
         <div class="photo-grid">
             <?php
             $args = array(
@@ -58,27 +60,22 @@ $hero_title = $hero_title ? $hero_title : $default_title;
         </div>
 
         <div class="load-more-container">
-            <?php
-            global $photo_query; 
-            if ($photo_query->max_num_pages > 1) :
-            ?>
+        <?php
+        global $photo_query; 
+        if ($photo_query->max_num_pages > 1) :
+        ?>
             <button
-            class="btn-load-more"
-            data-ajaxurl="<?php echo admin_url('admin-ajax.php'); ?>"
-            data-action="load_more_photos"
-            data-nonce="<?php echo wp_create_nonce('load_more_photos_nonce'); ?>"
-            data-page="2" >
-            Charger plus
+                class="js-load-more btn-load-more" data-ajaxurl="<?php echo admin_url('admin-ajax.php'); ?>"
+                data-action="filter_and_load_photos" data-nonce="<?php echo wp_create_nonce('photo_filter_nonce'); ?>" data-page="2" >
+                Charger plus
             </button>
-            <?php 
-            endif;
-            wp_reset_postdata();
-            ?>
+        <?php 
+        endif;
+        wp_reset_postdata();
+        ?>
         </div>
-
     </div>
 </section>
-
 
 
 <?php get_footer(); ?>

@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The header.
@@ -21,6 +22,7 @@
 
 <body>
 	<header id="main-header">
+		<div class ="menu-container">
 		<!-- Logo du site -->
 		<div class="logo">
 			<?php
@@ -38,6 +40,7 @@
 			<span class="line"></span>
 			<span class="line"></span>
 		</button>
+		
 
 		<!-- Affichage Menu du HEADER -->
 		<nav id="nav-menu" role="navigation">
@@ -49,6 +52,7 @@
 				]);
 			?>
 		</nav>
+			</div>
 	</header>
 
 	<main>

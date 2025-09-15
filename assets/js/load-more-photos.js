@@ -1,50 +1,103 @@
-// PAGINATION DES PHOTOS
+ // Code pour "charger Plus" et "Filtres Photos"
 (function ($) {
     $(document).ready(function () {
+        // FILTRES
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.custom-select-wrapper').length) {
+                $('.custom-select-wrapper').removeClass('open');
+            }
+        });
 
-        $('.btn-load-more').on('click', function (e) {
-            e.preventDefault();
+        $('.select-trigger').on('click', function (e) {
+            e.stopPropagation();
+            const wrapper = $(this).closest('.custom-select-wrapper');
+            $('.custom-select-wrapper').not(wrapper).removeClass('open');
+            wrapper.toggleClass('open');
+        });
 
-            const button = $(this);
+        $('.select-options li').on('click', function () {
+            const wrapper = $(this).closest('.custom-select-wrapper');
+            const trigger = wrapper.find('.select-trigger span');
+            const hiddenSelect = wrapper.find('.hidden-select');
+            const value = $(this).data('value');
+            const text = $(this).text();
 
-            const ajaxurl = button.data('ajaxurl');
+            trigger.text(text);
+            hiddenSelect.val(value);
+            
+            wrapper.find('.select-options li').removeClass('selected');
+            $(this).addClass('selected');
+
+            wrapper.removeClass('open');
+
+            hiddenSelect.trigger('change');
+        });
+        //$('#photo-filters-form')[0].reset();
+        
+        let currentPage = 1;
+        const photoGrid = $('.photo-grid');
+        const filtersForm = $('#photo-filters-form');
+        const loadMoreBtn = $('.js-load-more');
+
+        function fetchPhotos(reset = false) {
+            if (reset) {
+                currentPage = 1; 
+            }
+
+            const ajaxurl = loadMoreBtn.data('ajaxurl');
             const data = {
-                action: button.data('action'),
-                nonce:  button.data('nonce'),
-                page:   button.data('page'),
+                action: 'filter_and_load_photos',
+                nonce: loadMoreBtn.data('nonce'),
+                page: currentPage,
+                categorie: filtersForm.find('#filter-categorie').val(),
+                format: filtersForm.find('#filter-format').val(),
+                orderby: filtersForm.find('#filter-orderby').val(),
             };
 
             fetch(ajaxurl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Cache-Control': 'no-cache',
                 },
                 body: new URLSearchParams(data),
             })
             .then(response => response.json())
             .then(body => {
-                
+                photoGrid.css('opacity', 1); 
                 if (!body.success) {
-                    button.hide();
+                    if (reset) {
+                        photoGrid.html('<p class="no-results">"Aucune photo trouvé.</p>');
+                    }
+                    loadMoreBtn.hide();
                     return;
                 }
 
-                $('.photo-grid').append(body.data.html);
-
-                if (body.data.is_last_page) {
-                    button.hide();
+                if (reset) {
+                    photoGrid.html(body.data.html);
                 } else {
-                    const newPage = parseInt(data.page) + 1;
-                    button.data('page', newPage);
-                    button.text('Charger plus').prop('disabled', false);
+                    photoGrid.append(body.data.html);
                 }
+
+                if (currentPage >= body.data.max_pages) {
+                    loadMoreBtn.hide();
+                } else {
+                    loadMoreBtn.show();
+                }
+                
+                currentPage++;
             })
             .catch(error => {
-                console.error('Erreur : ', error);
-                button.text('Erreur - Réessayer').prop('disabled', false);
+                console.error('Erreur:', error);
+                photoGrid.css('opacity', 1);
             });
+        }
+
+        filtersForm.on('change', 'select', function () {
+            fetchPhotos(true);
         });
-        
+
+        loadMoreBtn.on('click', function () {
+            fetchPhotos(false);
+        });
     });
 })(jQuery);

@@ -43,7 +43,7 @@ $btn-text-hover: #fff;
   letter-spacing: 1.5px;
   font-style: normal;
   text-transform: uppercase;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .photo-display img {
@@ -96,8 +96,10 @@ $btn-text-hover: #fff;
 }
 
 .single-photo {
-  padding-left: 146px;
-  padding-right: 146px;
+  max-width: 1228px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .photo-action > div {
@@ -206,10 +208,11 @@ $btn-text-hover: #fff;
 
 /* ---- ZONE PHOTOS APPARENTÉS ---- */
 .related-photos {
-  padding-left: 146px;
-  padding-right: 146px;
-  margin-top: 80px;
-  margin-bottom: 120px;
+  padding-bottom: 120px;
+  max-width: 1228px;
+  margin: 80px auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .related-photos-grid {

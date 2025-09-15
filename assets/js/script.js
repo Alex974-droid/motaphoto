@@ -1,7 +1,9 @@
+
 // *** OUVERTURE MENU TOGGLE *** //
 document.addEventListener('DOMContentLoaded', () => {
   const boutonBurger = document.querySelector('.menu-toggle');
   const menu = document.getElementById("nav-menu");
+  //const menu = document.querySelector('.menu-container');
 
   let menuOpen = false; 
 
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
 //*** MODAL CONTACT HEADER ***//
 var modal = document.getElementById('ContactModal');
 var btn = document.querySelector(".open-contact-modal");
@@ -52,7 +55,7 @@ jQuery(document).ready(function($) {
       reference = $('#photo-ref').text().trim();
     }
 
-    // Injecter la valeur dans le champ du formulaire (voir ID CF7)
+    // Inserer la valeur dans le champ du formulaire (voir ID CF7)
     $('#photo-ref-field').val(reference);
 
     // Ouvrir la modale

@@ -69,19 +69,51 @@ function motaphoto_setup() {
 add_action( 'after_setup_theme', 'motaphoto_setup' );
 
 
-// PAGINATION DES PHOTOS
-function ajax_load_more_photos() {
-    check_ajax_referer('load_more_photos_nonce', 'nonce');
+// PAGINATION DES PHOTOS / FILTRES
+
+function ajax_filter_and_load_photos() {
+    
+    check_ajax_referer('photo_filter_nonce', 'nonce');
 
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $posts_per_page = 8;
 
-    $args = array(
-        'post_type' => 'photos',
-        'posts_per_page' => 4, 
-        'paged' => $paged,
-        'orderby' => 'date',
-        'order' => 'DESC',
-    );
+    $args = [
+        'post_type'      => 'photos',
+        'posts_per_page' => $posts_per_page,
+        'paged'          => $paged,
+    ];
+
+    // Trie photos
+    $orderby = isset($_POST['orderby']) ? sanitize_text_field($_POST['orderby']) : '';
+    if ($orderby === 'date_asc') {
+        $args['orderby'] = 'date';
+        $args['order']   = 'ASC';
+    } else {
+        $args['orderby'] = 'date';
+        $args['order']   = 'DESC';
+    }
+
+    // Requête de taxonomie
+    $tax_query = ['relation' => 'AND'];
+    if (!empty($_POST['categorie'])) {
+        $tax_query[] = [
+            'taxonomy' => 'categorie',
+            'field'    => 'slug',
+            'terms'    => sanitize_text_field($_POST['categorie']),
+        ];
+    }
+    if (!empty($_POST['format'])) {
+        $tax_query[] = [
+            'taxonomy' => 'format',
+            'field'    => 'slug',
+            'terms'    => sanitize_text_field($_POST['format']),
+        ];
+    }
+
+    if (count($tax_query) > 1) {
+        $args['tax_query'] = $tax_query;
+    }
 
     $query = new WP_Query($args);
 
@@ -92,18 +124,16 @@ function ajax_load_more_photos() {
         endwhile;
         $html = ob_get_clean();
 
-        $is_last_page = ($paged >= $query->max_num_pages);
-
         wp_send_json_success([
-            'html' => $html,
-            'is_last_page' => $is_last_page
+            'html'      => $html,
+            'max_pages' => $query->max_num_pages 
         ]);
     } else {
-        wp_send_json_error('Plus de photos à charger.');
+        wp_send_json_error(['message' => 'Aucune photo ne correspond à votre recherche.']);
     }
 
     wp_die();
 }
 
-add_action('wp_ajax_load_more_photos', 'ajax_load_more_photos');
-add_action('wp_ajax_nopriv_load_more_photos', 'ajax_load_more_photos');
+add_action('wp_ajax_filter_and_load_photos', 'ajax_filter_and_load_photos');
+add_action('wp_ajax_nopriv_filter_and_load_photos', 'ajax_filter_and_load_photos');
