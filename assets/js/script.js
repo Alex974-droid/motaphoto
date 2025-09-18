@@ -1,47 +1,48 @@
+//*** HEADER MOBILE ***//
+document.addEventListener('DOMContentLoaded', function () {
+    const boutonBurger = document.querySelector('.menu-toggle');
+    const boutonBurgerMobile = document.querySelector('.menu-toggle-mobile'); 
+    const headerMobile = document.querySelector('.main-header-mobile');
+    const containerMobile = document.querySelector('.menu-container-mobile');
+    const navMobile = document.querySelector('#nav-menu-mobile');
+    const overlay = document.querySelector('#nav-menu-overlay');
 
-// *** OUVERTURE MENU TOGGLE *** //
-document.addEventListener('DOMContentLoaded', () => {
-  const boutonBurger = document.querySelector('.menu-toggle');
-  const menu = document.getElementById("nav-menu");
-  //const menu = document.querySelector('.menu-container');
-
-  let menuOpen = false; 
-
-  boutonBurger.addEventListener('click', () => {
-    if (menuOpen) {
-      fermerMenu();
-    } else {
-      ouvrirMenu();
+    function openMenu() {
+        headerMobile.classList.add('active');
+        containerMobile.classList.add('active');
+        navMobile.classList.add('active');
+        overlay.classList.add('active');
     }
-    menuOpen = !menuOpen;
-  });
 
-  function ouvrirMenu() {
-    boutonBurger.classList.add('active');
-    menu.classList.add('open', 'slideInRight');
-    menu.classList.remove('fadeOut');
-  }
+    function closeMenu() {
+        navMobile.classList.add('closing');
+        headerMobile.classList.add('closing');
+        overlay.classList.remove('active');
 
-  function fermerMenu() {
-    boutonBurger.classList.remove('active');
-    menu.classList.remove('slideInRight');
-    menu.classList.add('slideOutRight');
-    setTimeout(() => {
-      menu.classList.remove('open');
-      menu.classList.remove('slideOutRight');
-    }, 400);
-  }
+        headerMobile.addEventListener('transitionend', function handler() {
+            headerMobile.classList.remove('active', 'closing');
+            navMobile.classList.remove('active', 'closing');
+            containerMobile.classList.remove('active');
+            headerMobile.removeEventListener('transitionend', handler);
+        });
+    }
+
+    boutonBurger.addEventListener('click', openMenu);
+    boutonBurgerMobile.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
 });
 
 
 //*** MODAL CONTACT HEADER ***//
 var modal = document.getElementById('ContactModal');
-var btn = document.querySelector(".open-contact-modal");
+var btns = document.querySelectorAll(".open-contact-modal");
 
-// Ouverture Modale
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+btns.forEach(function(btn) {
+    btn.addEventListener('click', function (e) {
+        e.preventDefault(); 
+        modal.style.display = "block";
+    });
+});
 
 // *** MODAL CONTACT PHOTO *** //
 jQuery(document).ready(function($) {
@@ -87,11 +88,86 @@ if (nextArrow && nextThumb) {
 }
 
 
+// LIGHTBOX PHOTOS
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
 
+    const lightboxImg = lightbox.querySelector('.lightbox__container img');
+    const lightboxRef = lightbox.querySelector('.lightbox__reference');
+    const lightboxCat = lightbox.querySelector('.lightbox__category');
+    const closeBtn = lightbox.querySelector('.lightbox__close');
+    const nextBtn = lightbox.querySelector('.lightbox__next');
+    const prevBtn = lightbox.querySelector('.lightbox__prev');
 
+    let currentIndex = 0;
+    let currentGallery = [];
 
+    document.body.addEventListener('click', function(e) {
+        const fullscreenIcon = e.target.closest('.fullscreen-icon');
 
+        if (fullscreenIcon) {
+            e.preventDefault();
+            currentGallery = [];
+            const allIcons = document.querySelectorAll('.fullscreen-icon');
+            allIcons.forEach(icon => {
+                const photoBlock = icon.closest('.photo-block');
+                if (photoBlock) {
+                    currentGallery.push({
+                        src: icon.href,
+                        reference: photoBlock.querySelector('.photo-reference')?.textContent || '',
+                        category: photoBlock.querySelector('.photo-category')?.textContent || ''
+                    });
+                }
+            });
 
+            currentIndex = Array.from(allIcons).findIndex(icon => icon === fullscreenIcon);
+
+            openLightbox();
+        }
+    });
+
+    function openLightbox() {
+        if (currentIndex < 0 || currentIndex >= currentGallery.length) return;
+        updateLightboxContent();
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        updateLightboxContent();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+        if (currentGallery.length === 0) return;
+        const item = currentGallery[currentIndex];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = `Photographie - ${item.reference}`;
+        lightboxRef.textContent = item.reference;
+        lightboxCat.textContent = item.category;
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+            closeLightbox();
+        }
+    });
+});
 
 
 

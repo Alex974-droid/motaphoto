@@ -32,9 +32,8 @@
 
             hiddenSelect.trigger('change');
         });
-        //$('#photo-filters-form')[0].reset();
         
-        let currentPage = 1;
+        let currentPage = 2;
         const photoGrid = $('.photo-grid');
         const filtersForm = $('#photo-filters-form');
         const loadMoreBtn = $('.js-load-more');
@@ -58,6 +57,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
+                    //'Cache-Control': 'no-cache',
                 },
                 body: new URLSearchParams(data),
             })
@@ -100,4 +100,5 @@
             fetchPhotos(false);
         });
     });
+    
 })(jQuery);

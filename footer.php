@@ -27,6 +27,8 @@
     </div>
 
 <?php get_template_part('template-parts/modale-contact'); ?>
+<?php get_template_part('template-parts/site-header-mobile'); ?>
+<?php get_template_part('template-parts/lightbox_photos'); ?>
 
 </footer>
 

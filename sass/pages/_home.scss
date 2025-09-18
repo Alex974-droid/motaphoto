@@ -195,25 +195,21 @@ $btn-text-hover: #fff;
             background-color: #FFD6D6; 
         }
 
-        // Au clic
         &:active {
             background-color: #FE5858; 
             color: #ffffff;
         }
 
-        // Élément sélectionné
         &.selected {
             background-color: #E00000; 
             color: #ffffff;
         }
 
-        // Premier enfant
         &:first-child {
             opacity: 0;
         }
     }
 }
-
 
 .arrow-icons {
     position: relative;

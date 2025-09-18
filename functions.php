@@ -137,3 +137,59 @@ function ajax_filter_and_load_photos() {
 
 add_action('wp_ajax_filter_and_load_photos', 'ajax_filter_and_load_photos');
 add_action('wp_ajax_nopriv_filter_and_load_photos', 'ajax_filter_and_load_photos');
+
+
+
+
+
+/**
+ * Palette de couleurs personnalisée
+ */
+function palette_de_couleurs_personnalisee() {
+    add_theme_support(
+        'editor-color-palette',
+        array(
+            array(
+                'name'  => __( 'Rouge Vif', 'motaphoto' ),
+                'slug'  => 'rouge-vif',
+                'color' => '#E00000',
+            ),
+            array(
+                'name'  => __( 'Noir', 'motaphoto' ),
+                'slug'  => 'noir',
+                'color' => '#000000',
+            ),
+            array(
+                'name'  => __( 'Gris', 'motaphoto' ),
+                'slug'  => 'gris',
+                'color' => '#D8D8D8',
+            ),
+            array(
+                'name'  => __( 'Corail', 'motaphoto' ),
+                'slug'  => 'corail',
+                'color' => '#FE5858',
+            ),
+            array(
+                'name'  => __( 'Charbon', 'motaphoto' ),
+                'slug'  => 'charbon',
+                'color' => '#313144',
+            ),
+            array(
+                'name'  => __( 'Gris Clair', 'motaphoto' ),
+                'slug'  => 'gris-clair',
+                'color' => '#E5E5E5',
+            ),
+            array(
+                'name'  => __( 'Rose Pâle', 'motaphoto' ),
+                'slug'  => 'rose-pale',
+                'color' => '#FFD6D6',
+            ),
+            array(
+                'name'  => __( 'Gris Moyen', 'motaphoto' ),
+                'slug'  => 'gris-moyen',
+                'color' => '#C4C4C4',
+            ),
+        )
+    );
+}
+add_action( 'after_setup_theme', 'palette_de_couleurs_personnalisee' );

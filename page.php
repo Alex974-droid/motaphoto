@@ -9,15 +9,16 @@
  * @since Twenty Twenty-One 1.0
  */
 
-get_header();
+get_header(); ?>
 
-while ( have_posts() ) :
-	the_post();
-	get_template_part( 'template-parts/content/content-page' );
+<div class="container">
 
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
-endwhile; 
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <div><?php the_content(); ?></div>
+<?php endwhile; endif; ?>
+</div>
 
-get_footer();
+
+
+<?php get_template_part('template-parts/site-header-mobile'); ?>
+<?php get_footer(); ?>

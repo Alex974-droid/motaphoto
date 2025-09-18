@@ -1,8 +1,8 @@
 /*
 Theme Name: Motaphoto
-Theme URI: http://motaphoto.local/
+Theme URI: http://motaphoto.com/
 Author: Alexandre
-Author URI: http://motaphoto.local/
+Author URI: http://motaphoto.com/
 Description: Thème personnalisé pour le site de la photographe Nathalie Mota.
 Version: 1.0
 Text Domain: theme-nathalie-mota
@@ -16,11 +16,11 @@ Text Domain: theme-nathalie-mota
 @use 'pages/home.scss';
 @use 'pages/single-photos.scss';
 @use 'abstracts/functions';
-@use 'abstracts/mixins';
 @use 'base/animations';
 @use 'components/banner';
 @use 'components/contact-popup';
 @use 'components/photo-block';
+@use 'components/lightbox-photos';
 @use 'layout/header';
 @use 'layout/header-mobile';
 @use 'layout/footer';

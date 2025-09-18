@@ -1,53 +1,52 @@
 /* The Modal (background) */
 .modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 130px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.8); 
-    animation: fadeIn 0.8s ease;
-    z-index: 10;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.8s ease;
+  z-index: 1000;
 }
 
 /* Modal Content */
 .modal-content {
-    position: relative;
-    background-color: #FFFFFF;
-    margin: auto;
-    padding: 0;
-    border: 2px solidrgb(0, 0, 0)8;
-    width: 597px;
-    height: auto;
-    border: 5px #000000 solid;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation: fadeIn 0.8s ease;
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0;
+  width: 597px;
+  height: auto;
+  border: 5px #000000 solid;
+  animation: fadeIn 0.8s ease;
+  z-index: 1000;
 }
 
 /* Zone pour l'image */
 .modal-header {
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    overflow: hidden; 
-    height: auto;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  height: auto;
 }
 
 .modal-body {
-    max-width: 100%;
-    overflow: hidden;       
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .modal-header img {
   display: block;
   width: 100%;
   height: auto;
-  transform: scale(1.5); 
-  transform-origin: center; 
+  transform: scale(1.5);
+  transform-origin: center;
 }
 
 /* Champs texte et email */
@@ -56,59 +55,55 @@
 .wpcf7 input[type="url"],
 .wpcf7 input[type="tel"],
 .wpcf7 input[type="number"] {
-  font-size: 18px;     
-  height: 55px;     
-  padding: 12px 15px; 
-  border: 1px solid #B8BBC2;
-  border-radius: 8px; 
-  width: 100%;       
+  font-size: 18px;
+  height: 55px;
+  padding: 12px 15px;
+  border: 1px solid #b8bbc2;
+  border-radius: 8px;
+  width: 100%;
   box-sizing: border-box;
 }
 
 /* Zone de texte (MESSAGE) */
 .wpcf7 textarea {
   font-size: 18px;
-  height: 150px;    
+  height: 150px;
   padding: 12px 15px;
-  border: 1px solid #B8BBC2;
+  border: 1px solid #b8bbc2;
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
-  resize: none;   
+  resize: none;
 }
 
 /* Bouton d’envoi */
 .wpcf7 input[type="submit"] {
   font-size: 18px;
   padding: 14px 25px;
-  border: 0px solid #B8BBC2;
+  border: 0px solid #b8bbc2;
   width: 100%;
-  background: #D8D8D8;
+  background: #d8d8d8;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
 
 .wpcf7 input[type="submit"]:hover {
-  background-color: #C4C4C4;
-  background-color: #000;   
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
 }
-
-
 
 /* Message erreur du formulaire */
 .wpcf7 form.invalid .wpcf7-response-output {
-  border-color: #E00000;
+  border-color: #e00000;
 }
-
 
 /* Labels du formulaire CF7 */
 .wpcf7 form label {
-  display: block;        
-  text-align: left;    
-  margin-bottom: 30px;    
-  font-weight: 500;       
-  font-size: 12px;       
+  display: block;
+  text-align: left;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 // DIV du formulaire
@@ -116,7 +111,7 @@
   width: 56%;
   padding-top: 30px;
   padding-bottom: 30px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .wpcf7-spinner {
@@ -131,7 +126,7 @@
 .wpcf7 input:focus,
 .wpcf7 textarea:focus {
   border: 2px solid #313144;
-  outline: none;         
+  outline: none;
 }
 
 /* ========== MEDIA QUERIES (RESPONSIVE) ========== */
@@ -144,44 +139,53 @@
 
 /* Tablettes */
 @media (max-width: 600px) {
-  .modal { 
-           padding-top: 100px; 
-    }
+  .modal {
+    padding-top: 100px;
+  }
 
   .modal-content {
-    width: 95vw;   
+    width: 95vw;
     height: auto;
     animation: slideInRight 0.5s ease;
   }
 
   .wpcf7 form label {
-  margin-bottom: 20px;         
-}
-
-  .contact-form {
-    padding: 0px 0px 0px 20px; 
-    width: 70%;         
+    margin-bottom: 20px;
   }
 
-  .modal-header { padding: 40px 0px 20px 0px; }
-  .modal-body  { padding: 12px; }
-  .wpcf7 input[type="submit"] { padding: 14px 18px; }
+  .contact-form {
+    padding: 0px 0px 0px 20px;
+    width: 70%;
+  }
+
+  .modal-header {
+    padding: 40px 0px 20px 0px;
+  }
+  .modal-body {
+    padding: 12px;
+  }
+  .wpcf7 input[type="submit"] {
+    padding: 14px 18px;
+  }
 }
 
 /* Mobiles < 480px */
 @media (max-width: 480px) {
-  .wpcf7 form label { font-size: 11px; margin-bottom: 10px; }
+  .wpcf7 form label {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
   .wpcf7 input[type="text"],
   .wpcf7 input[type="email"],
   .wpcf7 input[type="url"],
   .wpcf7 input[type="tel"],
   .wpcf7 input[type="number"],
   .wpcf7 textarea {
-    font-size: 16px;             
-    height: auto;              
+    font-size: 16px;
+    height: auto;
   }
 
   .modal-header img {
-    transform: scale(1.4);       
+    transform: scale(1.4);
   }
 }
